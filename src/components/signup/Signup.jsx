@@ -1,11 +1,7 @@
-import { useState, useEffect } from 'react'
-// import { QueryClient, useQuery } from '@tanstack/react-query'
-import './App.css'
+import { useState } from 'react'
+import User from './../../services/user/User'
 
-// const queryClient = new QueryClient()
-
-
-function App() {
+function Signup() {
     const [formData, setFormData] = useState({
         email: '',
         fullName: '',
@@ -25,46 +21,13 @@ function App() {
     const createUser = async (e) => {
         e.preventDefault();
 
-        /**
-         * create service for this
-         */
-        await fetch('https://rs-blackmarket-api.herokuapp.com/api/v1/users', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ user: formData })
-        })
-        .then(response => response.json())
-        .then(data => console.log({data}));
+        const User = new User(formData);
+        User.create();
     }
-
-    // const { isPending, error, data } = useQuery({
-    //     queryKey: ['createUser'],
-    //     queryFn: () => {
-    //         fetch('https://api.github.com/repos/TanStack/query')
-    //             .then((res) => res.json())
-    //         }
-    //     })
-    
-    //     if (isPending) return 'Loading...';
-
-    //     if (error) return 'An error has occurred: ' + error.message;
-    // }
-
-//   {
-//     "user": {
-//       "email": "some-test@email.com",
-//       "password": "password",
-//       "password_confirmation": "other_password",
-//       "name": "some name"
-//     }
-//   }
-
-
 
   return (
     <>
+        {formData && <div>name: {formData.name}</div>}
         <div className="container">
             <form onSubmit={createUser}>
                 <label htmlFor="email">Email</label>
@@ -106,4 +69,4 @@ function App() {
   )
 }
 
-export default App
+export default Signup
