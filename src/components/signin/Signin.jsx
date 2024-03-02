@@ -1,12 +1,10 @@
 import { useState } from 'react'
-import User from './../../services/user/User'
+import User from '../../services/user/User'
 
-function Signup() {
+function Signin() {
     const [formData, setFormData] = useState({
         email: '',
-        fullName: '',
         password: '',
-        passwordConfirm: ''
     });
 
     const formHandler = (e) => {
@@ -18,7 +16,7 @@ function Signup() {
         console.log({formData})
     }
 
-    const createUser = async (e) => {
+    const signIn = async (e) => {
         e.preventDefault();
 
         const user = new User(formData);
@@ -32,22 +30,14 @@ function Signup() {
         {formData && (
             <div>name: {formData.name}</div>
         )}
-
+        
         <div className="container">
-            <form onSubmit={createUser}>
+            <form onSubmit={signIn}>
                 <label htmlFor="email">Email</label>
                 <input
                     type="text"
                     id="email"
                     name="email"
-                    onChange={formHandler}
-                    required
-                />
-                <label htmlFor="fullName">Full Name</label>
-                <input
-                    type="text"
-                    id="fullName"
-                    name="name"
                     onChange={formHandler}
                     required
                 />
@@ -59,19 +49,12 @@ function Signup() {
                     onChange={formHandler}
                     required
                 />
-                <label htmlFor="confirmPassword">Confirm Password</label>
-                <input
-                    type="password"
-                    id="confirmPassword"
-                    name="password_confirmation"
-                    onChange={formHandler}
-                    required
-                />
-                <button type="submit">Sign Up</button>
+
+                <button type="submit">Sign In</button>
             </form>
         </div>
     </>
   )
 }
 
-export default Signup
+export default Signin

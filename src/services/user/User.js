@@ -1,9 +1,12 @@
 import blackmarketApi from "../blackmarketApi";
 
+/**
+ * Missing validation and error handling???
+ */
 class User extends blackmarketApi {
     constructor({ email, fullName, password, passwordConfirm }) {
         super();
-        this.modelRoute = '/user';
+        this.modelRoute = '/users';
         this.email = email;
         this.fullName = fullName;
         this.password = password;
@@ -11,7 +14,7 @@ class User extends blackmarketApi {
     }
 
     async create() {
-        const fetch = await fetch(this.BASE_ROUTE + this.modelRoute, {
+        const response = await fetch(this.BASE_ROUTE + this.modelRoute, {
             method: 'POST',
             headers: this.JSON_HEADERS,
             body: JSON.stringify({
@@ -24,7 +27,7 @@ class User extends blackmarketApi {
             })
         });
 
-        return fetch.json();
+        return response.json();
     }
 }
 
