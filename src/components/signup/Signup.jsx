@@ -30,10 +30,10 @@ function Signup() {
   return (
     <>
         {formData && (
-            <div>name: {formData.name}</div>
+            <div className="text-3xl font-bold underline">name: {formData.name}</div>
         )}
 
-        <div className="container">
+        <div className="container w-full max-w-xs">
             <form onSubmit={createUser}>
                 <label htmlFor="email">Email</label>
                 <input
