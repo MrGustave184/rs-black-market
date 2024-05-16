@@ -31,16 +31,23 @@ function Signin() {
             <div>name: {formData.name}</div>
         )}
         
-        <div className="container">
+        <div className="form-container">
             <form onSubmit={signIn}>
-                <label htmlFor="email">Email</label>
-                <input
-                    type="text"
-                    id="email"
-                    name="email"
-                    onChange={formHandler}
-                    required
-                />
+                <div className="mb-3">
+                    <label htmlFor="email" className="form-label">Email</label>
+                    <input
+                        type="text"
+                        id="email"
+                        className="form-control"
+                        name="email"
+                        onChange={formHandler}
+                        required
+                    />
+                </div>
+                <div className="mb-3">
+
+                </div>
+
                 <label htmlFor="password">Password</label>
                 <input
                     type="password"
@@ -50,7 +57,7 @@ function Signin() {
                     required
                 />
 
-                <button type="submit">Sign In</button>
+                <button className="btn btn-primary" type="submit">Sign In</button>
             </form>
         </div>
     </>

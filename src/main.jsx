@@ -5,7 +5,8 @@ import {
     createBrowserRouter,
     RouterProvider,
   } from "react-router-dom";
-import './styles.css'
+import './styles.scss'
+import * as bootstrap from 'bootstrap'
 
 /**
  * Routes
@@ -22,16 +23,11 @@ const router = createBrowserRouter([
         path: "/",
         element: <Root />,
         errorElement: <ErrorPage />,
-        children: [
-            {
-                path: "/signup",
-                element: <Signup />,
-            },
-            {
-                path: "/signin",
-                element: <Signin />,
-            },
-        ]
+    },
+    {
+        path: "/signin",
+        element: <Signin />,
+        errorElement: <ErrorPage />,
     },
 ]);
 
