@@ -1,9 +1,11 @@
 import { Outlet, Link } from "react-router-dom";
 
+// applayout
 function Root() {
     return (
     <>
         <main className="container">
+            {/* header */}
             <h1>Rootstrap black market</h1>
             <h2>Routes test</h2>
             <ul>
