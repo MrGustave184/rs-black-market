@@ -1,0 +1,7 @@
+.formContainer {
+    min-height: 100vh;
+}
+
+.loginCard {
+    border: 1px solid black;
+}

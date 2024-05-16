@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import User from '../../services/user/User'
+import styles from './signin.module.css'
 
 function Signin() {
     const [formData, setFormData] = useState({
@@ -26,12 +27,8 @@ function Signin() {
     }
 
   return (
-    <>
-        {formData && (
-            <div>name: {formData.name}</div>
-        )}
-        
-        <div className="form-container">
+    <div className={`d-flex align-items-center justify-content-center ${styles.formContainer}`}>
+        <div className={`rounded p-4 ${styles.loginCard}`}>
             <form onSubmit={signIn}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email</label>
@@ -45,22 +42,24 @@ function Signin() {
                     />
                 </div>
                 <div className="mb-3">
-
+                    <label className="form-label" htmlFor="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        className='form-control'
+                        name="password"
+                        onChange={formHandler}
+                        required
+                    />
                 </div>
-
-                <label htmlFor="password">Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    onChange={formHandler}
-                    required
-                />
-
-                <button className="btn btn-primary" type="submit">Sign In</button>
+                <div className="d-grid">
+                    <button className="btn btn-primary" type="submit">Sign In</button>
+                </div>
             </form>
         </div>
-    </>
+       
+    </div>
+
   )
 }
 
